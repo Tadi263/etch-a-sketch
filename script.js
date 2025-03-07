@@ -12,7 +12,11 @@ for(let i = 0; i < boxes.length; i++){
     boxes[i].style = "height: 25px; width: 25px; border: solid, 2px, black;";
 }
 
-
+//Get color 
+let pickedcolor = document.getElementById("pickcolor").value;
+document.getElementById("pickcolor").onchange = function() {
+    pickedcolor = this.value;
+  }
 
 //hover colour effect
 container.addEventListener(
@@ -20,6 +24,6 @@ container.addEventListener(
     (event) => {
       // highlight the mouseover target
       if (event.target !== container) {
-        event.target.style.backgroundColor = "orange";}
+        event.target.style.backgroundColor = pickedcolor;}
     },
     false,)
