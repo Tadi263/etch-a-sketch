@@ -1,0 +1,11 @@
+* {
+    box-sizing: border-box;
+  }
+
+#grid-container{
+    width: 404px;
+    height: 404px;
+    border: 2px solid black;
+    display: flex;
+    flex-wrap: wrap;
+}
