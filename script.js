@@ -32,7 +32,7 @@ document.getElementById("pickcolor").onchange = function() {
 
 
 
-//eraser
+//eraser functionality
 const eraser = document.querySelector("#eraser");
 eraserstate = false;
 eraser.addEventListener("click", () => {
@@ -44,3 +44,13 @@ eraser.addEventListener("click", () => {
     eraser.style = "background-color: lightgrey; border: solid, 1px, grey;";
   }
   console.log(eraserstate);})
+
+  //eraser functionality
+ 
+  const clear = document.querySelector("#clear");
+  clear.addEventListener("click", () => {
+    for(let i = 0; i < boxes.length; i++){
+      boxes[i].style = "background-color: white height: 25px; width: 25px; border: solid, 1px, grey;";
+  }
+  })
+
