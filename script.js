@@ -9,7 +9,7 @@ for(let i = 0; i < 256; i ++) {
 //Box Styles
 const boxes = document.getElementsByClassName('box')
 for(let i = 0; i < boxes.length; i++){
-    boxes[i].style = "height: 25px; width: 25px; border: solid, 2px, black;";
+    boxes[i].style = "height: 25px; width: 25px; border: solid, 1px, grey;";
 }
 
 //Get color 
@@ -19,11 +19,28 @@ document.getElementById("pickcolor").onchange = function() {
   }
 
 //hover colour effect
-container.addEventListener(
+  container.addEventListener(
     "mouseover",
     (event) => {
       // highlight the mouseover target
-      if (event.target !== container) {
+      if (event.target !== container && eraserstate == false) {
         event.target.style.backgroundColor = pickedcolor;}
+      else if (event.target !== container && eraserstate == true){
+          event.target.style.backgroundColor = "white";}
     },
     false,)
+
+
+
+//eraser
+const eraser = document.querySelector("#eraser");
+eraserstate = false;
+eraser.addEventListener("click", () => {
+  eraserstate = !eraserstate;
+  if (eraserstate == true){
+    eraser.style = "background-color: grey; border: solid, 1px, black;";
+  }
+  else {
+    eraser.style = "background-color: lightgrey; border: solid, 1px, grey;";
+  }
+  console.log(eraserstate);})

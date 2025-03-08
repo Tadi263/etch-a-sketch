@@ -8,9 +8,15 @@
     <title>Etch A Sketch</title>
 </head>
 <body>
-    <container id="grid-container">
-    </container>
-    <label for="pickcolor">Pick Colour:</label>
-  <input type="color" id="pickcolor" name="pickcolor">
+  <div id="centre-page">
+    <div id="config">
+      <label for="pickcolor">Pick Colour:</label>
+      <input type="color" id="pickcolor" name="pickcolor">
+      <button type="button" id="eraser">Erase</button>
+    </div>
+    <div id="sketch-pad">
+      <container id="grid-container"></container>
+    </div>
+  </div>
 </body>
 </html>
