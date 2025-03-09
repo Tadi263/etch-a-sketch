@@ -23,7 +23,8 @@ body{
 }
 
 #heading{
-  height:fit-content ;
+  height:fit-content;
+  font-size: 50px;
 }
 
 #top-page, #footer{
@@ -38,7 +39,9 @@ body{
 }
 
 #footer-text{
-  height:fit-content ;
+  height:fit-content;
+  font-size: 15px;
+  margin: 5px;
 }
 
 #grid-container{
@@ -91,7 +94,19 @@ body{
 #config{
   display: flex;
   flex-direction: column;
-  gap: 10px
+  padding: 15px;
+  gap: 10px;
+  border-radius: 10px;
+  background-color: rgb(101, 101, 147);
 }
 
+button {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+button.active {
+  background-color: #333;
+  color: white;
+}
 
