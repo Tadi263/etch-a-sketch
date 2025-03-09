@@ -78,8 +78,7 @@ document.getElementById("pickcolor").onchange = function() {
   eraserstate = !eraserstate;
   rainbowstate = false;
   rainbow.classList.remove('active');
-  eraser.classList.toggle('active');
-  console.log(eraserstate);})
+  eraser.classList.toggle('active');})
 
   //rainbow functionality
   const rainbow = document.querySelector("#rainbow");
@@ -88,8 +87,7 @@ document.getElementById("pickcolor").onchange = function() {
   rainbowstate = !rainbowstate;
   eraserstate = false;
   eraser.classList.remove('active');
-  rainbow.classList.toggle('active');
-  console.log(rainbowstate);})
+  rainbow.classList.toggle('active');})
 
   function getRandomColor() {
     return `rgb(${Math.floor(Math.random() * 256)}, 
