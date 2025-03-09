@@ -1,16 +1,59 @@
 const container = document.querySelector("#grid-container");
-//create boxes
-for(let i = 0; i < 256; i ++) {
-    const box = document.createElement("div");
-    box.className = "box";
-    container.appendChild(box);
+
+//get box quantity
+
+const slider = document.getElementById("myRange");
+const output = document.getElementById("demo");
+output.innerHTML = slider.value; // Display the default slider value
+let quantity = slider.value;
+// Update the current slider value (each time you drag the slider handle)
+slider.oninput = function() {
+  quantity = this.value;
+  output.innerHTML = this.value;
 }
 
-//Box Styles
-const boxes = document.getElementsByClassName('box')
-for(let i = 0; i < boxes.length; i++){
-    boxes[i].style = "height: 25px; width: 25px; border: solid, 1px, grey;";
-}
+
+   // create initial boxes
+   function createBoxes(numBoxes) {
+    for (let i = 0; i < numBoxes; i++) {
+      const box = document.createElement("div");
+      box.className = "box";
+      container.appendChild(box);
+    }
+    updateBoxStyles();
+  }
+  
+  // Function to update box styles
+  function updateBoxStyles(){
+      const boxes = document.getElementsByClassName('box')
+      for(let i = 0; i < boxes.length; i++){
+          boxes[i].style = `background-color: white; height: ${400 / quantity}px; width:  ${400 / quantity}px; border: solid 1px grey;`;
+      }
+  }
+  
+  // initial box creation
+  createBoxes(quantity * quantity)
+  
+  slider.addEventListener("change", function() {
+    // Get the collection of boxes
+    let boxes = document.getElementsByClassName('box');
+  
+    // Convert HTMLCollection to an array
+    const boxesArray = Array.from(boxes);
+  
+    // Now you can use forEach
+    boxesArray.forEach((div) => div.remove());
+  
+      // recreate boxes
+      createBoxes(quantity * quantity);
+  }, false);
+  
+  //Box Styles
+  const boxes = document.getElementsByClassName('box')
+  for(let i = 0; i < boxes.length; i++){
+      boxes[i].style = `background-color: white; height: ${400 / quantity}px; width:  ${400 / quantity}px; border: solid 1px grey;`;
+  }
+
 
 //Get color 
 let pickedcolor = document.getElementById("pickcolor").value;
@@ -50,7 +93,6 @@ eraser.addEventListener("click", () => {
   const clear = document.querySelector("#clear");
   clear.addEventListener("click", () => {
     for(let i = 0; i < boxes.length; i++){
-      boxes[i].style = "background-color: white height: 25px; width: 25px; border: solid, 1px, grey;";
-  }
+      boxes[i].style = `background-color: white; height: ${400 / quantity}px; width:  ${400 / quantity}px; border: solid 1px grey;`;}
   })
 
